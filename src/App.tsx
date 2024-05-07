@@ -1,26 +1,85 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from "react";
 import './App.css';
+import {Button} from "./Button";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let students = [
+        {id: 1, name: "James", age: 8},
+        {id: 2, name: "Robert", age: 18},
+        {id: 3, name: "John", age: 28},
+        {id: 4, name: "Michael", age: 38},
+        {id: 5, name: "William", age: 48},
+        {id: 6, name: "David", age: 58},
+        {id: 7, name: "Richard", age: 68},
+        {id: 8, name: "Joseph", age: 78},
+        {id: 9, name: "Thomas", age: 88},
+        {id: 10, name: "Charles", age: 98},
+        {id: 11, name: "Christopher", age: 100},
+        {id: 12, name: "James", age: 8},
+        {id: 13, name: "Robert", age: 18},
+        {id: 14, name: "John", age: 28}
+
+    ];
+
+
+
+    const Button1foo = (subscraber: string, age: number) => {
+        alert(subscraber + " " + age)
+    }
+    const Button2foo = (subscraber: string, age: number) => {
+        alert(subscraber + " " + age)
+    }
+    const Button3foo =(nameBut:string)=>{
+        alert(nameBut)
+    }
+    // lesson 3
+    let[a, setA]=useState(1)
+    const onCliskHundler1=()=>{
+        setA(++a);
+        alert(a)
+    }
+    const onCliskHundler2=()=>{
+        setA(0);
+        alert(a)
+    }
+    const [money, setMoney] = useState([
+        { banknots: 'Dollars', value: 100, number: ' a1234567890' },
+        { banknots: 'Dollars', value: 50, number: ' z1234567890' },
+        { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
+        { banknots: 'Dollars', value: 100, number: ' e1234567890' },
+        { banknots: 'Dollars', value: 50, number: ' c1234567890' },
+        { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
+        { banknots: 'Dollars', value: 50, number: ' x1234567890' },
+        { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
+    ])
+
+        let currentMoney=money.filter(maney=>maney.banknots==="RUBLS")
+    return (
+        <div>
+            <ul>
+                {currentMoney.map((mon, index)=>{
+                    return(
+
+                <li key={index}>
+                    <span>{mon.banknots}</span>
+                    <span>{mon.value}</span>
+                    <span>{mon.number}</span>
+                </li>
+                    )
+                })}
+            </ul>
+            
+            <h1>{a}</h1>
+            <button onClick={onCliskHundler1}>number</button>
+            <button onClick={onCliskHundler2}>0</button>
+            <Button name={"youtube chanel-1"} callBack={() => Button1foo("Vasya", 21)}/>
+            <Button name={"youtube chanel-2"} callBack={() => Button2foo("Jenya", 22)}/>
+            <Button name={"i'am stuped button"} callBack={()=>Button3foo("I'am stupped button")}/>
+        </div>
+
+
+    );
 }
 
 export default App;
