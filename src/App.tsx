@@ -2,9 +2,14 @@ import React, {useState} from "react";
 import './App.css';
 import {ComponentLess4} from "./dzPo4video/ComponentLess4";
 import {Button} from "./Button";
+import {ComponentForLesson6} from "./06_input/ComponentForLesson6";
 
 
 export type FilterMoneyType = "All" | "RUBLS" | 'Dollars';
+
+export type MessageType={
+    message:string
+}
 
 function App() {
 
@@ -71,10 +76,21 @@ function App() {
         setFilter(newValue)
     }
 
+    //--------------lesson 6 input
+    let[message, setMessage]=useState([
+        {message:"message1"},
+        {message:"message2"},
+        {message:"message3"}
+    ])
+console.log([
+    {message:"message1"},
+    {message:"message2"},
+    {message:"message3"}
+])
     return (
         <div>
+            <ComponentForLesson6 message={message}/>
             <ComponentLess4 filterVal={setFilter} currentMoney={currentMoney}/>
-
             <>
                 <h1>{a}</h1>
                 <button onClick={onCliskHundler1}>number</button>
